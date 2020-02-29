@@ -1,8 +1,12 @@
+import 'package:http/http.dart';
 import 'package:mobile_racha_praia/services/HTTP.dart';
 
 class PlayerService {
-  static getAll() async {
-    final request = HTTP.get('/players');
-    return request;
+  static Future<Response> getAll() async {
+    return HTTP.get('/players');
+  }
+
+  static Future<Response> delete(int id) async {
+    return HTTP.delete('/players/$id');
   }
 }

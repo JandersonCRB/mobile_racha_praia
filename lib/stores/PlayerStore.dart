@@ -18,7 +18,12 @@ class PlayerStore extends ChangeNotifier {
       List<Player> playerList =
           jsonList.map((playerJson) => Player.fromJson(playerJson)).toList();
       _playerList = playerList;
+      notifyListeners();
     });
     return request;
+  }
+
+  Future<Response> delete(int id) {
+    return PlayerService.delete(id);
   }
 }

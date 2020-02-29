@@ -18,12 +18,14 @@ class _AddPlayerScreenState extends State<AddPlayerScreen> {
       'player': {'name': name},
     };
     Map<String, String> headers = {"Content-type": "application/json"};
-    print(jsonEncode(body));
-    http.post(
-      'http://10.0.3.2:3000/players',
-      headers: headers,
-      body: jsonEncode(body),
-    ).then((_) => Navigator.pop(this.context)).catchError((err) => print(err));
+    http
+        .post(
+          'http://10.0.3.2:3000/players',
+          headers: headers,
+          body: jsonEncode(body),
+        )
+        .then((_) => Navigator.pop(this.context))
+        .catchError((err) => print(err));
   }
 
   @override
@@ -47,9 +49,7 @@ class _AddPlayerScreenState extends State<AddPlayerScreen> {
                 height: 8,
               ),
               RaisedButton(
-                color: Theme
-                    .of(context)
-                    .primaryColor,
+                color: Theme.of(context).primaryColor,
                 child: Text(
                   "Enviar",
                   style: TextStyle(color: Colors.white),
